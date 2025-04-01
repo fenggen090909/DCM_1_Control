@@ -48,8 +48,7 @@ def create_app(config_class=Config):
         REQUEST_LATENCY.labels(request.method, request.path).observe(request_latency)
         return response
 
-    from app.views.spider import spider_bp
-    
+    from app.views.spider import spider_bp    
     from app.views.celery import celery_bp
     from app.views.redis import redis_bp
     
