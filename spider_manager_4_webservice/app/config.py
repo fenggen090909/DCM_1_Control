@@ -23,7 +23,7 @@ class Config:
     result_backend= REDIS_URL
     
     # Scrapy项目路径 - 根据实际情况调整
-    SCRAPY_PROJECT_PATH = '/app/spider_manager_4/scrapy_3'
+    # SCRAPY_PROJECT_PATH = '/app/spider_manager_4/scrapy_3'
 
 
     

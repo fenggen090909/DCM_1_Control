@@ -23,14 +23,14 @@ def run_spider():
     """启动爬虫"""
 
     data = request.get_json()
-    spider_name = data.get('spider_name')    
+    spider_name = data.get('spider_name')
 
     logging.info(f"fenggen --- spider_name={spider_name}")
     
     task = celery.send_task(
         'app.tasks.spider_tasks.run_crawler_task',  # 远程任务名称
         args=[spider_name],
-        queue='producer_queue'
+        queue='1_queue'
     )
     
     return jsonify({
