@@ -24,12 +24,14 @@ def run_spider():
 
     data = request.get_json()
     spider_name = data.get('spider_name')
+    start_page = data.get('start_page')
+    end_page = data.get('end_page')
 
     logging.info(f"fenggen --- spider_name={spider_name}")
     
     task = celery.send_task(
         'app.tasks.spider_tasks.run_crawler_task',  # 远程任务名称
-        args=[spider_name],
+        args=[spider_name, start_page, end_page],
         queue='1_queue'
     )
     
